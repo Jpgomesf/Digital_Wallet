@@ -1,4 +1,4 @@
-# digital_wallet
+# Digital Wallet
 
 A new Flutter project.
 
