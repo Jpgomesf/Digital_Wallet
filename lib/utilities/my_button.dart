@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, avoid_unnecessary_containers
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -8,6 +9,7 @@ class MyButton extends StatelessWidget {
 
   final int iconPath;
   final String buttonText;
+  final bool iconMaterialLib;
   final buttonColor;
 
 
@@ -15,7 +17,8 @@ class MyButton extends StatelessWidget {
     Key? key,
     required this.iconPath,
     required this.buttonText,
-    required this.buttonColor
+    required this.buttonColor,
+    required this.iconMaterialLib
 
   }):super(key: key);
 
@@ -32,17 +35,28 @@ class MyButton extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.shade400,
-                blurRadius: 10,
-                spreadRadius: 5
+                blurRadius: 7,
+                spreadRadius: 2
               ),
             ], 
           ),
           child: Center(
-            child: 
-              Icon(
-                IconData(iconPath, fontFamily: 'MaterialIcons'),
-                color: buttonColor,
-                size: 35,
+            child: iconMaterialLib == true ? 
+            Container(
+                child: 
+                Icon(
+                  IconData(iconPath, fontFamily: 'MaterialIcons'),
+                  color: buttonColor,
+                  size: 35,
+                )
+            ) : 
+            Container(
+                child: 
+                Icon(
+                  IconData(iconPath, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
+                  color: buttonColor,
+                  size: 35,
+                )
             )
           ),
         ),

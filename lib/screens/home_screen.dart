@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -5,6 +7,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../utilities/my_button.dart';
 import '../utilities/my_card.dart';
+import '../utilities/my_dicover_card.dart';
 import '../utilities/my_row.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -118,59 +121,76 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [                  
                 MyButton(
+                  iconMaterialLib: true,
                   iconPath: 0xf054e, 
                   buttonText: 'Pix', 
                   buttonColor: Colors.black
                 ),
                 MyButton(
-                  iconPath: 0xe0cc, 
+                  iconMaterialLib: false,
+                  iconPath: 0xf5c7, 
                   buttonText: 'Análise', 
                   buttonColor: Colors.black
                 ),
                 MyButton(
-                  iconPath: 0xe19f, 
+                  iconMaterialLib: false,
+                  iconPath: 0xf586, 
                   buttonText: 'Pay', 
                   buttonColor: Colors.black
                 ),
                 MyButton(
-                  iconPath: 0xf04dc, 
-                  buttonText: 'Transferir', 
+                  iconMaterialLib: false,
+                  iconPath: 0xf8b2, 
+                  buttonText: 'Crypto', 
                   buttonColor: Colors.black
                 ),
               ],
             ),
           ),
 
-        SizedBox(height: 10,),
+        SizedBox(height: 20,),
 
         Padding(
-          padding:  EdgeInsets.all(25.0),
+          padding:  EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             children: [
               //Empréstimo
               MyRow(
                 title: "Empréstimo",
-                smDescription: "Alegria de comprar",
+                smDescription: "Lend or borrow crypto currency",
+                iconPath: 0xf6a6,
+              ),
+
+              SizedBox(height: 10,),
+
+              MyRow(
+                title: "Investimentos",
+                smDescription: "Aprenda a investir",
+                iconPath: 0xf8df,
               ),
             ],
           ),
         ),
 
-      
+        SizedBox(height: 10.0,),
 
-        // Container(
-        //   color: Colors.grey,
-        //   height: 170,
-        //   child: 
-        //   PageView(
-        //     controller: _pageController,
-        //     scrollDirection: Axis.horizontal,
-        //     children: [
-        //       MyDiscoverCard(),
-        //       MyDiscoverCard(),
-        //     ],
-        //   ),
-        // ) 
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text('Descubra mais', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                ],
+              )
+            ],
+          ),
+        ),
+
+
+
+
       ],
     );
   }
