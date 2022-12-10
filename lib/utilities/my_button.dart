@@ -32,8 +32,8 @@ class MyButton extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.shade400,
-                blurRadius: 20,
-                spreadRadius: 10
+                blurRadius: 10,
+                spreadRadius: 5
               ),
             ], 
           ),
@@ -53,8 +53,7 @@ class MyButton extends StatelessWidget {
           buttonText,
           style: TextStyle(
             fontSize: 13,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey[900],
+            fontWeight: FontWeight.w300,
           ),
         )
       ],

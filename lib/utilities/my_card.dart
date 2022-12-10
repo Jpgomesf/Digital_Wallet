@@ -44,14 +44,14 @@ class MyCard extends StatelessWidget {
               'Saldo',
               style: TextStyle(color: Colors.white), 
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 8,),
             Text(
               "R\$ " + balance.toString(),
               style: TextStyle(color: Colors.white,
                 fontSize: 32,
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 24,),
             Text(
               cardNumber.toString(),
               style: TextStyle(color: Colors.white,

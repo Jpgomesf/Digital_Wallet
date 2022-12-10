@@ -1,7 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:digital_wallet/screens/home_screen.dart';
+import 'package:digital_wallet/screens/settings_screen.dart';
+import 'package:digital_wallet/screens/users_screen.dart';
 import 'package:digital_wallet/utilities/my_button.dart';
 import 'package:digital_wallet/utilities/my_card.dart';
+import 'package:digital_wallet/utilities/my_dicover_card.dart';
+import 'package:digital_wallet/utilities/my_row.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -14,126 +19,43 @@ class BaseScreen extends StatefulWidget {
 }
 
 class _BaseScreenState extends State<BaseScreen> {
+  int _selectedIndex = 0;
 
   //pageController
-  final _controller = PageController();
+  //final _controller = PageController();
+  // final PageController _pageController =
+  //     PageController(viewportFraction: 0.8, initialPage: 0);
+  // double _page = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    SettingsScreen(),
+    UsersScreen()
+
+  ];
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: const[
-                      Text(
-                        'My',
-                        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold), 
-                      ),
-
-                      Text(
-                        'Wallet',
-                        style: TextStyle(fontSize: 28), 
-                      ),
-                    ],
-                  ),
-
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[400],
-                      shape: BoxShape.circle
-                    ),
-                    child: Icon(Icons.add),
-                  ) 
-                ],
-              ),),
-
-              SizedBox(height: 25),
-
-            //cards
-              Container(
-                height: 200,
-                child: PageView(
-                  scrollDirection: Axis.horizontal,
-                  controller: _controller,
-                  children: [
-                    MyCard(
-                      balance: 430.0,
-                      cardNumber: 12345678,
-                      name: 'Jefferson',
-                      expiryMonth: 12,
-                      expiryYear: 24, 
-                      color: Colors.red[800],
-                    ),
-                    MyCard(
-                      balance: 20918391032.0,
-                      cardNumber: 1123123,
-                      name: 'gam Doe',
-                      expiryMonth: 12,
-                      expiryYear: 24, 
-                      color: Colors.green[400],
-                    ),
-                    MyCard(
-                      balance: 0,
-                      cardNumber: 12345678,
-                      name: 'John Doe',
-                      expiryMonth: 12,
-                      expiryYear: 24, 
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 25),
-              
-              SmoothPageIndicator(
-                controller: _controller, 
-                count: 3,
-                effect: ExpandingDotsEffect(
-                  activeDotColor: Colors.grey.shade800,
-                  dotHeight: 10,
-                  dotWidth: 10
-                ),
-              ),
-
-              SizedBox(height: 25),
-
-              //3 buttons -> pix / pay / bills
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [                  
-                  MyButton(
-                    iconPath: 0xf054e, 
-                    buttonText: 'Pix', 
-                    buttonColor: Colors.black
-                  ),
-                  MyButton(
-                    iconPath: 0xe0cc, 
-                    buttonText: 'Análise', 
-                    buttonColor: Colors.black
-                  ),
-                  MyButton(
-                    iconPath: 0xe19f, 
-                    buttonText: 'Card', 
-                    buttonColor: Colors.black
-                  ),
-                  MyButton(
-                    iconPath: 0xf04dc, 
-                    buttonText: 'Transferir', 
-                    buttonColor: Colors.black
-                  ),
-                ],
-              )
-          ],
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.indigo,
+        unselectedItemColor: Colors.grey,
+        items: const[
+          BottomNavigationBarItem(icon: Icon(IconData(0xe318, fontFamily: 'MaterialIcons')), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(IconData(0xe043, fontFamily: 'MaterialIcons')), label: "Perfil"),
+          BottomNavigationBarItem(icon: Icon(IconData(0xe57f, fontFamily: 'MaterialIcons')), label: "Settings")
+        ],
+        currentIndex: _selectedIndex,
+        onTap: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   }
