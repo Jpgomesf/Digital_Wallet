@@ -3,12 +3,7 @@
 import 'package:digital_wallet/screens/home_screen.dart';
 import 'package:digital_wallet/screens/settings_screen.dart';
 import 'package:digital_wallet/screens/users_screen.dart';
-import 'package:digital_wallet/utilities/my_button.dart';
-import 'package:digital_wallet/utilities/my_card.dart';
-import 'package:digital_wallet/utilities/my_dicover_card.dart';
-import 'package:digital_wallet/utilities/my_row.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 class BaseScreen extends StatefulWidget {
@@ -37,14 +32,14 @@ class _BaseScreenState extends State<BaseScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.indigo,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.grey[400],
         items: const[
           BottomNavigationBarItem(icon: Icon(IconData(0xe318, fontFamily: 'MaterialIcons')), label: "Home"),
           BottomNavigationBarItem(icon: Icon(IconData(0xe043, fontFamily: 'MaterialIcons')), label: "Perfil"),

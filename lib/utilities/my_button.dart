@@ -28,17 +28,18 @@ class MyButton extends StatelessWidget {
       children: [
         Container(
           height: 60,
-          width: 65,
+          width:65,
           decoration: BoxDecoration(
-            color: Colors.grey[100],
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade400,
-                blurRadius: 7,
-                spreadRadius: 2
-              ),
-            ], 
+            color: Colors.grey[300],
+            //borderRadius: BorderRadius.circular(100),
+            shape: BoxShape.circle,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.shade400,
+            //     blurRadius: 7,
+            //     spreadRadius: 2
+            //   ),
+            // ], 
           ),
           child: Center(
             child: iconMaterialLib == true ? 
@@ -47,7 +48,7 @@ class MyButton extends StatelessWidget {
                 Icon(
                   IconData(iconPath, fontFamily: 'MaterialIcons'),
                   color: buttonColor,
-                  size: 35,
+                  size: 25,
                 )
             ) : 
             Container(
@@ -55,7 +56,7 @@ class MyButton extends StatelessWidget {
                 Icon(
                   IconData(iconPath, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
                   color: buttonColor,
-                  size: 35,
+                  size: 25,
                 )
             )
           ),

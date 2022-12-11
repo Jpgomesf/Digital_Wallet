@@ -24,19 +24,19 @@ class MyRow extends StatelessWidget {
     Container(
       height: 60,
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: Colors.grey[300],
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.shade300,
-            blurRadius: 2.0,
-            spreadRadius: 2
-          ),
-        ], 
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.grey.shade300,
+        //     blurRadius: 2.0,
+        //     spreadRadius: 2
+        //   ),
+        // ], 
       ),      
       child: 
       Padding(
-        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        padding: const EdgeInsets.only(left: 10.0, right: 8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
